@@ -1,0 +1,260 @@
+using System;
+
+namespace RockPaperScissors
+{
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			int PlayerWins = 0;
+			int PlayerLoses = 0;
+			int Draws = 0;
+
+			for (; ; )
+			{
+				Console.Write("Choose [r]ock, [p]aper or [s]cissors: ");
+
+				char RPC = Convert.ToChar(Console.ReadLine());
+
+				string player = "";
+
+				if (RPC == 'r')
+				{
+					player = "Rock";
+				}
+				else if (RPC == 'p')
+				{
+					player = "Paper";
+				}
+				else if (RPC == 's')
+				{
+					player = "Scissors";
+				}
+
+				Random RNG = new Random();
+				int num = RNG.Next(1, 4);
+
+				string computer = "";
+
+				if (num == 1)
+				{
+					computer = "Rock";
+					if (player == computer)
+					{
+						Draws++;
+						Console.WriteLine("Draw");
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Press [Y] to continue playing, Press [N] to exit.");
+						char YorN = Convert.ToChar(Console.ReadLine());
+						if (YorN == 'y')
+						{
+							continue;
+						}
+						else if (YorN == 'n')
+						{
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine($"You won: {PlayerWins} times.");
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine($"You lost: {PlayerLoses} times.");
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine($"You drew: {Draws} times.");
+							return;
+						}
+					}
+					else if (player == "Paper")
+					{
+						PlayerWins++;
+						Console.ForegroundColor = ConsoleColor.Green;
+						Console.WriteLine("You win");
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Press [Y] to continue playing, Press [N] to exit.");
+
+						if (Console.ReadKey().Key == ConsoleKey.Y)
+						{
+							continue;
+						}
+						else if (Console.ReadKey().Key == ConsoleKey.N)
+						{
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine($"You won: {PlayerWins} times.");
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine($"You lost: {PlayerLoses} times.");
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine($"You drew: {Draws} times.");
+							return;
+						}						
+					}
+					else if (player == "Scissors")
+					{
+						PlayerLoses++;
+						Console.ForegroundColor = ConsoleColor.Red;
+						Console.WriteLine("You lose");
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Press [Y] to continue playing, Press [N] to exit.");
+
+						if (Console.ReadKey().Key == ConsoleKey.Y)
+						{
+							continue;
+						}
+						else if (Console.ReadKey().Key == ConsoleKey.N)
+						{
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine($"You won: {PlayerWins} times.");
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine($"You lost: {PlayerLoses} times.");
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine($"You drew: {Draws} times.");
+							return;
+						}
+					}
+				}
+				else if (num == 2)
+				{
+					computer = "Paper";
+					if (player == computer)
+					{
+						Draws++;
+						Console.ForegroundColor = ConsoleColor.White;
+						Console.WriteLine("Draw");
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Press [Y] to continue playing, Press [N] to exit.");
+
+						if (Console.ReadKey().Key == ConsoleKey.Y)
+						{
+							continue;
+						}
+						else if (Console.ReadKey().Key == ConsoleKey.N)
+						{
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine($"You won: {PlayerWins} times.");
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine($"You lost: {PlayerLoses} times.");
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine($"You drew: {Draws} times.");
+							return;
+						}
+					}
+					else if (player == "Scissors")
+					{
+						PlayerWins++;
+						Console.ForegroundColor = ConsoleColor.Green;
+						Console.WriteLine("You win");
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Press [Y] to continue playing, Press [N] to exit.");
+;
+						if (Console.ReadKey().Key == ConsoleKey.Y)
+						{
+							continue;
+						}
+						else if (Console.ReadKey().Key == ConsoleKey.N)
+						{
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine($"You won: {PlayerWins} times.");
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine($"You lost: {PlayerLoses} times.");
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine($"You drew: {Draws} times.");
+							return;
+						}
+					}
+					else if (player == "Rock")
+					{
+						PlayerLoses++;
+						Console.ForegroundColor = ConsoleColor.Red;
+						Console.WriteLine("You lose");
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Press [Y] to continue playing, Press [N] to exit.");
+
+						if (Console.ReadKey().Key == ConsoleKey.Y)
+						{
+							continue;
+						}
+						else if (Console.ReadKey().Key == ConsoleKey.N)
+						{
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine($"You won: {PlayerWins} times.");
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine($"You lost: {PlayerLoses} times.");
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine($"You drew: {Draws} times.");
+							return;
+						}
+					}
+				}
+				else if (num == 3)
+				{
+					computer = "Scissors";
+					if (player == computer)
+					{
+						Draws++;
+						Console.ForegroundColor = ConsoleColor.White;
+						Console.WriteLine("Draw");
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Press [Y] to continue playing, Press [N] to exit.");
+
+						if (Console.ReadKey().Key == ConsoleKey.Y)
+						{
+							continue;
+						}
+						else if (Console.ReadKey().Key == ConsoleKey.N)
+						{
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine($"You won: {PlayerWins} times.");
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine($"You lost: {PlayerLoses} times.");
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine($"You drew: {Draws} times.");
+							return;
+						}
+					}
+					else if (player == "Rock")
+					{
+						PlayerWins++;
+						Console.ForegroundColor = ConsoleColor.Green;
+						Console.WriteLine("You win");
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Press [Y] to continue playing, Press [N] to exit.");
+
+						if (Console.ReadKey().Key == ConsoleKey.Y)
+						{
+							continue;
+						}
+						else if (Console.ReadKey().Key == ConsoleKey.N)
+						{
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine($"You won: {PlayerWins} times.");
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine($"You lost: {PlayerLoses} times.");
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine($"You drew: {Draws} times.");
+							return;
+						}
+					}
+					else if (player == "Paper")
+					{
+						PlayerLoses++;
+						Console.ForegroundColor = ConsoleColor.Red;
+						Console.WriteLine("You lose");
+						Console.ForegroundColor = ConsoleColor.Blue;
+						Console.WriteLine("Press [Y] to continue playing, Press [N] to exit.");
+
+						if (Console.ReadKey().Key == ConsoleKey.Y)
+						{
+							continue;
+						}
+						else if (Console.ReadKey().Key == ConsoleKey.N)
+						{
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine($"You won: {PlayerWins} times.");
+							Console.ForegroundColor = ConsoleColor.Red;
+							Console.WriteLine($"You lost: {PlayerLoses} times.");
+							Console.ForegroundColor = ConsoleColor.White;
+							Console.WriteLine($"You drew: {Draws} times.");
+							return;
+						}
+					}
+				}
+			}
+		}
+	}
+}
